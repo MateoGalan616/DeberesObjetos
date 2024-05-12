@@ -9,7 +9,7 @@ import Product from "./components/ProductsComponent";
 function App() {
   return (
     <div>
-      <h1>Factory Management</h1>
+      <h1>Playstation</h1>
       <div>
         <h2>Product 1</h2>
         <ProduceButton />
