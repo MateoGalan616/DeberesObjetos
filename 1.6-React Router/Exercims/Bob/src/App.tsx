@@ -1,39 +1,46 @@
-import React, { useState, Dispatch, SetStateAction } from 'react';
+import React, { useState } from 'react';
 
-function score(x: number, y: number): number {
-  const distance = Math.sqrt(x ** 2 + y ** 2);
-  if (distance <= 1) {
-    return 10;
-  } else if (distance <= 5) {
-    return 5;
-  } else if (distance <= 10) {
-    return 1;
-  } else {
-    return 0;
-  }
-}
+const HeyComponent: React.FC = () => {
+  const [message, setMessage] = useState('');
+  const [response, setResponse] = useState('');
 
-function ScoreCalculator() {
-  const [x, setX] = useState(0);
-  const [y, setY] = useState(0);
-  const [scoreResult, setScoreResult] = useState(0);
+  const hey = (message: string): string => {
+    if (message.trim().length >= 1) {
+      if (!/[a-z]/.test(message) && /[A-Z]/.test(message) && message.endsWith('?')) {
+        return "¡Cálmate, sé lo que estoy haciendo!";
+      } else if (message.trim().endsWith('?')) {
+        return '¡Claro!';
+      } else if (!/[a-z]/.test(message) && /[A-Z]/.test(message)) {
+        return '¡Whoa, cálmate!';
+      } else {
+        return '¡Lo que sea!';
+      }
+    } else {
+      return '¡Está bien, sé así!';
+    }
+  };
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>, setter: Dispatch<SetStateAction<number>>) => {
-    setter(Number(event.target.value));
-  }
+  const handleMessageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setMessage(event.target.value);
+  };
 
-  const calculateScore = () => {
-    setScoreResult(score(x, y));
-  }
+  const handleCheckMessage = () => {
+    setResponse(hey(message));
+  };
 
   return (
     <div>
-      <input type="number" value={x} onChange={(event) => handleInputChange(event, setX)} placeholder="Ingrese X" />
-      <input type="number" value={y} onChange={(event) => handleInputChange(event, setY)} placeholder="Ingrese Y" />
-      <button onClick={calculateScore}>Calcular Puntuación</button>
-      <p>La puntuación es: {scoreResult}</p>
+      <h2>Hey Component</h2>
+      <input
+        type="text"
+        value={message}
+        onChange={handleMessageChange}
+        placeholder="Enter your message"
+      />
+      <button onClick={handleCheckMessage}>Check Message</button>
+      <p>Response: {response}</p>
     </div>
   );
-}
+};
 
-export default ScoreCalculator;
+export default HeyComponent;

@@ -177,4 +177,4 @@ Devuelve JSX (elementos de React) que conforman la interfaz de usuario para el c
 Incluye un área de texto para ingresar la matriz, un botón para procesarla y secciones para mostrar las filas y columnas.
 
 
-Link video:
+Link video: https://youtu.be/f2CIUkFrBJw?si=UsQO46WLn3BYRMiE
