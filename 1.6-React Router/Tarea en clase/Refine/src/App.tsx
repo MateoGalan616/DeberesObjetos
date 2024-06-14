@@ -43,7 +43,6 @@ import {
 import { ForgotPassword } from "./pages/forgotPassword";
 import { Login } from "./pages/login";
 import { Register } from "./pages/register";
-
 function App() {
   return (
     <BrowserRouter>
@@ -133,6 +132,7 @@ function App() {
                       <Route path="create" element={<ProductCreate />} />
                       <Route path="edit/:id" element={<ProductsEdit />} />
                       <Route path="show/:id" element={<ProductsShow />} />
+                      
                     </Route>
                     <Route path="*" element={<ErrorComponent />} />
                   </Route>
